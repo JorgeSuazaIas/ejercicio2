@@ -10,7 +10,7 @@ import javax.persistence.Column;
 @Entity
 public class Profesor {
     @Id
-    private int cedula;
+    private Integer cedula;
     @Column(nullable = false)
     private String nombre;
     private String apellido;

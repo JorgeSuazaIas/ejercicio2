@@ -30,8 +30,6 @@ public class ProfesorService implements IProfesorService {
         }
     }
 
-    
-
 
    @Override
     public ArrayList<ProfesorDTO> getAll(){
@@ -40,62 +38,15 @@ public class ProfesorService implements IProfesorService {
     }
 
     @Override
-    public void delete(){
-
-    }
-    /*//Aqui los estoy listando
-    private List<Profesor> profesors;
-    public ProfesorService(){
-        profesors = new ArrayList<>();
-        profesors.add(new Profesor("Jorge","Suaza" ,12345, 20, "Ciencias"));
-        profesors.add(new Profesor("Jose", "Baena", 54321, 30, "Matematicas"));
-        profesors.add(new Profesor("Claudia","Cifuentes", 21435, 40, "Ingles"));
-
-    }
-    public List<Profesor> list(){
-        return profesors;
-    }
-
-    //Aqui los estoy buscando y verifico si la cedula coincide
-
-    public Profesor buscarProfesor(int cedula){
-        for(Profesor profesor : profesors){
-            if (profesor.getCedula() == cedula){
-                return profesor;
-            }
+    public void delete(ProfesorDTO profesor) {
+        if(this.iProfesorRepositorio.existsById(profesor.getCedula())){
+            this.iProfesorRepositorio.delete(new Profesor(profesor));
         }
-        return null;
+
+       }
+
+
     }
 
-    //Aqui lo estoy creando
 
-    public Profesor creaProfesor(Profesor profesor){
-        profesors.add(profesor);
-        return profesor;
-    }
 
-    //Aqui lo actualizo
-
-    public Profesor actualizarProfesor(int cedula, Profesor profesor){
-        int indice = 0;
-        for (Profesor p: profesors){
-            if (p.getCedula() == cedula){
-                profesor.setCedula(cedula);
-                profesors.set(indice, profesor);
-            }
-        }
-        return profesor;
-    }
-
-    //Aqui lo elimino
-
-    public boolean eliminar(int cedula){
-        for(Profesor e : profesors){
-            if (e.getCedula() == cedula){
-                return profesors.remove(e);
-            }
-        }
-        return false;
-    }*/
-
-}
