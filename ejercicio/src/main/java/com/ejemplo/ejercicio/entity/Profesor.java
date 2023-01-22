@@ -22,13 +22,13 @@ public class Profesor {
     private int edad;
 
     @Column(name = "materia")
-    private String materia;
+    private int materia;
 
 
     public Profesor(ProfesorDTO profesor) {
     }
 
-    public Profesor(String nombre, String apellido, int cedula, int edad, String materia) {
+    public Profesor(String nombre, String apellido, int cedula, int edad, int materia) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -37,7 +37,6 @@ public class Profesor {
     }
 
     public Profesor() {
-
     }
 
     public String getNombre() {
@@ -72,11 +71,11 @@ public class Profesor {
         this.edad = edad;
     }
 
-    public String getMateria() {
+    public int getMateria() {
         return materia;
     }
 
-    public void setMateria(String materia) {
+    public void setMateria(int materia) {
         this.materia = materia;
     }
 

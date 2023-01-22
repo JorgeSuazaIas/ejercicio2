@@ -41,7 +41,7 @@ public class ProfesorService implements IProfesorService {
     @Override
     public void delete(ProfesorDTO profesor) {
         if(this.iProfesorRepositorio.existsById(profesor.getCedula())){
-            this.iProfesorRepositorio.delete(new Profesor(profesor));
+            iProfesorRepositorio.deleteById(profesor.getCedula());
         }
 
        }
