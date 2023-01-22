@@ -1,11 +1,12 @@
 package com.ejemplo.ejercicio.service;
 import com.ejemplo.ejercicio.dto.ProfesorDTO;
+import com.ejemplo.ejercicio.entity.Profesor;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface IProfesorService {
-    void save(ProfesorDTO profesor);
+    Profesor save(Profesor profesor);
 
     void update(ProfesorDTO profesor);
 

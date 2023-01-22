@@ -1,6 +1,7 @@
 package com.ejemplo.ejercicio.dto;
 
 import com.ejemplo.ejercicio.entity.Profesor;
+
 public class ProfesorDTO {
     private String nombre;
     private String apellido;
@@ -20,41 +21,52 @@ public class ProfesorDTO {
         this.edad = edad;
         this.materia = materia;
     }
-    public ProfesorDTO(Profesor profesor){
+
+    public ProfesorDTO(Profesor profesor) {
         this.nombre = profesor.getNombre();
         this.apellido = profesor.getApellido();
         this.cedula = profesor.getCedula();
         this.edad = profesor.getEdad();
         this.materia = profesor.getMateria();
     }
-    public String getNombre(){
+
+    public String getNombre() {
         return nombre;
     }
-    public void setNombre(){
+
+    public void setNombre() {
         this.nombre = nombre;
     }
-    public String getApellido(){
+
+    public String getApellido() {
         return apellido;
     }
-    public void setApellido(){
+
+    public void setApellido() {
         this.apellido = apellido;
     }
-    public int getCedula(){
+
+    public int getCedula() {
         return cedula;
     }
-    public void setCedula(){
+
+    public void setCedula() {
         this.cedula = cedula;
     }
-    public int getEdad(){
+
+    public int getEdad() {
         return edad;
     }
-    public void setEdad(){
+
+    public void setEdad() {
         this.edad = edad;
     }
-    public String getMateria(){
+
+    public String getMateria() {
         return materia;
     }
-    public void setMateria(){
+
+    public void setMateria() {
         this.materia = materia;
     }
 

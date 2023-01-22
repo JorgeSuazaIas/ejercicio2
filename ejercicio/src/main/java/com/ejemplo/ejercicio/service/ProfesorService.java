@@ -3,6 +3,7 @@ package com.ejemplo.ejercicio.service;
 import com.ejemplo.ejercicio.dto.ProfesorDTO;
 import com.ejemplo.ejercicio.entity.Profesor;
 import com.ejemplo.ejercicio.repositorio.IProfesorRepositorio;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class ProfesorService implements IProfesorService {
     }
 
     @Override
-    public void save(ProfesorDTO profesor){
-        this.iProfesorRepositorio.save(new Profesor(profesor));
+    public Profesor save(Profesor profesor){
+        return iProfesorRepositorio.save(profesor);
     }
 
     @Override

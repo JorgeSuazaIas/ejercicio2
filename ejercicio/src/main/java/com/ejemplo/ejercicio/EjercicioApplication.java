@@ -13,8 +13,6 @@ public class EjercicioApplication {
 
 		SpringApplication.run(EjercicioApplication.class, args);
 
-
-
 	}
 	private void saveProfesors(){
 		Profesor profesor1 = new Profesor("Jorge", "Suaza", 1234, 20, "Ciencias" );
@@ -22,8 +20,6 @@ public class EjercicioApplication {
 		Profesor profesor3 = new Profesor("Stiven", "Cardona", 91011, 42, "Ingles" );
 		Profesor profesor4 = new Profesor("Sebastian", "Osorio", 12131, 53, "Geografia" );
 		Profesor profesor5 = new Profesor("Anderson", "Echeverri", 41516, 64, "Español" );
-
-
 	}
 
 

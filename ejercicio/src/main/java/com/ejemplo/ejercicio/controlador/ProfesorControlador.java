@@ -2,49 +2,42 @@ package com.ejemplo.ejercicio.controlador;
 
 import com.ejemplo.ejercicio.entity.Profesor;
 import com.ejemplo.ejercicio.repositorio.IProfesorRepositorio;
-import com.ejemplo.ejercicio.service.ProfesorService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import com.ejemplo.ejercicio.dto.ProfesorDTO;
 import com.ejemplo.ejercicio.service.IProfesorService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.ejemplo.ejercicio.repositorio.IProfesorRepositorio.*;
-
 @RestController
-@RequestMapping("/teacher")
-
+@RequestMapping(value = "/api/v1/teacher", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProfesorControlador {
     private final IProfesorService iProfesorService;
     private final IProfesorRepositorio iProfesorRepositorio;
 
     public ProfesorControlador(IProfesorService iProfesorService,
-                               IProfesorRepositorio iProfesorRepositorio){
+                               IProfesorRepositorio iProfesorRepositorio) {
         this.iProfesorService = iProfesorService;
         this.iProfesorRepositorio = iProfesorRepositorio;
     }
 
-    @GetMapping()
+    @PostMapping("/save-one")
+    public ResponseEntity<Profesor> saveProfesor(@RequestBody Profesor profesor) {
+        return ResponseEntity.ok(iProfesorService.save(profesor));
+    }
 
-    public ResponseEntity <?> getProfesorAll(){
+    @GetMapping()
+    public ResponseEntity<?> getProfesorAll() {
         return ResponseEntity.ok().body(this.iProfesorService.getAll());
     }
 
-    public List<ProfesorDTO> getAll(){
+    public List<ProfesorDTO> getAll() {
         List<Profesor> list = (List<Profesor>) iProfesorRepositorio.findAll();
         return list.stream()
-                .map(ProfesorDTO::new)
-                .collect(Collectors.toList());
-    }
-
-    @PostMapping()
-    public ResponseEntity <?> saveProfesor(@RequestBody ProfesorDTO profesor){
-        this.iProfesorService.save(profesor);
-        return new ResponseEntity<>("Creado", HttpStatus.CREATED);
+                   .map(ProfesorDTO::new)
+                   .collect(Collectors.toList());
     }
 
 }

@@ -5,23 +5,24 @@ import com.ejemplo.ejercicio.dto.ProfesorDTO;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "profesor")
 public class Profesor {
     @Id
-    private Integer cedula;
-    @Column(nullable = false)
+    private int cedula;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "apellido")
     private String apellido;
 
-
-
-
+    @Column(name = "edad")
     private int edad;
 
+    @Column(name = "materia")
     private String materia;
-
 
 
     public Profesor(ProfesorDTO profesor) {
@@ -33,6 +34,10 @@ public class Profesor {
         this.cedula = cedula;
         this.edad = edad;
         this.materia = materia;
+    }
+
+    public Profesor() {
+
     }
 
     public String getNombre() {
