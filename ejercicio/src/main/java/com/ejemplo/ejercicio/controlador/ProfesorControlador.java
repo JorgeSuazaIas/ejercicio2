@@ -29,11 +29,11 @@ public class ProfesorControlador {
     }
 
     @GetMapping()
-    /*
+
     public ResponseEntity <?> getProfesorAll(){
         return ResponseEntity.ok().body(this.iProfesorService.getAll());
     }
-    */
+
     public List<ProfesorDTO> getAll(){
         List<Profesor> list = (List<Profesor>) iProfesorRepositorio.findAll();
         return list.stream()

@@ -22,8 +22,7 @@ public class Profesor {
 
     private String materia;
 
-    public Profesor() {
-    }
+
 
     public Profesor(ProfesorDTO profesor) {
     }
